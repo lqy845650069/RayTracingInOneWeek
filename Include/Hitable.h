@@ -1,0 +1,18 @@
+#pragma once
+#include<memory>
+#include"Ray.h"
+using std::shared_ptr;
+
+class Material;
+class HitRecord {
+public:
+	float T;
+	Vec3 P; // Point Position
+	Vec3 Normal; // Normal Vector
+	shared_ptr<Material> MatPtr;
+};
+
+class Hitable {
+public:
+	virtual bool Hit(const Ray& R, double TMin, double TMax, HitRecord& Rec) const = 0;
+};
