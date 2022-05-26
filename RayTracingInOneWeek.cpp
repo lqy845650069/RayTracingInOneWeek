@@ -32,7 +32,7 @@ HitableList random_scene() {
                 }
                 else if (choose_mat < 0.95) {
                     // metal
-                    auto albedo = random(0.5, 1);
+                    auto albedo = random(0.5, 1); 
                     auto fuzz = random_double(0, .5);
                     world.add(
                         make_shared<Sphere>(center, 0.2, make_shared<Metal>(albedo, fuzz)));

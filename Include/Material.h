@@ -15,12 +15,21 @@ public:
 		Vec3 Target = Rec.P + Rec.Normal + random_in_unit_sphere();
 
 		Scattered = Ray(Rec.P, Target - Rec.P, RIn.Time());
-		Attenuation = Albedo;
-		return true;
+		//Attenuation = Albedo;
+		//return true;
+		if (random_double() < PR) {
+			Attenuation = Albedo / PR;
+			return true;
+		}
+		else return false;
 	}
 
 	Vec3 Albedo;//·´ÉäÂÊ
+private:
+	static double PR;
 };
+
+double Lambertian::PR = 0.8;
 
 
 class Metal : public Material {
