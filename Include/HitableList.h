@@ -6,7 +6,7 @@ using std::shared_ptr;
 using std::make_shared;
 
 class HitableList: public Hitable{
-private:
+public:
 	std::vector<shared_ptr<Hitable>> objects;
 public:
 	HitableList(){}

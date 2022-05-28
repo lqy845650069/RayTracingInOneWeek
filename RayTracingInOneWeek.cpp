@@ -10,6 +10,7 @@
 #include"HitableList.h"
 #include"Camera.h"
 #include"Sphere.h"
+#include"BVH.h"
 using namespace cv;
 
 HitableList random_scene() {
@@ -53,7 +54,7 @@ HitableList random_scene() {
     world.add(
         make_shared<Sphere>(Vec3(4, 1, 0), 1.0, make_shared<Metal>(Vec3(0.7, 0.6, 0.5), 0.0)));
 
-    return world;
+    return static_cast<HitableList>(make_shared<BVH_Node>(world, 0, 1));
 }
 
 

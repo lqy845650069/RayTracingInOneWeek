@@ -186,9 +186,14 @@ inline float random_double() {
 	return distribution(generator);
 }
 
-inline float random_double(float min, float max) {
-	// Returns a random real in [min,max).
+inline double random_double(float min, float max) {
+	// Returns a random real double in [min,max).
 	return min + (max - min) * random_double();
+}
+
+inline int random_int(int min, int max) {
+	// Returns a random real int in [min,max).
+	return int(min + (max - min) * random_double());
 }
 
 inline Vec3 random() {
